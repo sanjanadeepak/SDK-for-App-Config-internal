@@ -53,10 +53,10 @@
             <a class="bx--cloud-header-list__link" href="#">DATACARD</a>
             <a class="bx--cloud-header-list__link" href="#">DTH</a>
             <a class="bx--cloud-header-list__link" href="#">LANDLINE</a>
-            {{if .!isLoggedInUser}}
+            {{if not .IsLoggedInUser}}
                 <button class="bx--btn bx--btn--primary" type="button" data-modal-target="#modalLogin">LOGIN</button>
             {{ else }}
-            <p style="margin-right: 10px;"><%= userEmail %></p>
+            <p style="margin-right: 10px;">{{.UserEmail}} </p>
             <button class="bx--btn bx--btn--primary" type="button" onclick="window.location.href='/logout'">SIGN OUT</button>
             {{end}}
         </li>
