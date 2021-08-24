@@ -1,0 +1,9 @@
+{{ define "header"}}
+
+{{ if  .LeftNavMenu }}
+{{ template "header_new" }}
+{{else}}
+{{ template "header_default"}}
+{{ end }}
+
+{{ end }}
