@@ -14,7 +14,7 @@
 /* You can write your styles here 👇 */
 
 .banner {
-  background-image: url(images/aeroplane.jpg);
+  background-image: url(../images/aeroplane.jpg);
   background-size: cover;
   min-height: 570px;
 }
