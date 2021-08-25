@@ -18,7 +18,11 @@ specific language governing permissions and limitations under the License.
 </head>
 
 <body>
-    {{ template "header" }}
+    {{ if  .LeftNavMenu }}
+    {{ template "header_new" }}
+    {{ else }}
+    {{ template "header_default" }}
+    {{ end }}
     <div class="banner">
         <div class="bx--grid">
             <div class="bx--row">

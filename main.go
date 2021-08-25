@@ -28,7 +28,7 @@ func main() {
 
 func First(w http.ResponseWriter, r *http.Request) {
 
-	t, err := template.ParseFiles("views/index.html", "views/partials/head.html", "views/partials/header.html", "views/partials/header_default.html", "views/partials/header_new.html", "views/partials/footer.html")
+	t, err := template.ParseFiles("views/index.html", "views/partials/head.html", "views/partials/header_default.html", "views/partials/header_new.html", "views/partials/footer.html")
 	if err != nil {
 		panic(err)
 	}
@@ -50,11 +50,11 @@ func First(w http.ResponseWriter, r *http.Request) {
 }
 func Second(w http.ResponseWriter, r *http.Request) {
 
-	t, err := template.ParseFiles("views/flights.html", "views/partials/head.html", "views/partials/header.html", "views/partials/header_default.html", "views/partials/header_new.html", "views/partials/footer.html")
+	t, err := template.ParseFiles("views/flights.html", "views/partials/head.html", "views/partials/header_default.html", "views/partials/header_new.html", "views/partials/footer.html")
 	if err != nil {
 		panic(err)
 	}
-	d2 := data{DiscountValue: "30", LeftNavMenu: false}
+	d2 := data{DiscountValue: "30", LeftNavMenu: true}
 	err = t.Execute(w, d2)
 	if err != nil {
 		panic(err)
