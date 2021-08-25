@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	// AppConfiguration "github.com/IBM/appconfiguration-go-sdk/lib"
 )
 
 type data struct {
@@ -14,40 +15,17 @@ type data struct {
 	// IsLoggedInUser bool
 }
 
-func HomePage() {
-	// fs := http.FileServer(http.Dir("./static"))
-	// http.Handle("/", fs)
-	// http.HandleFunc("/evaluate", Calculate)
+func main() {
+	// appConfiguration := AppConfiguration.GetInstance()
+	// appConfiguration.Init("region", "guid", "apikey")
 	http.HandleFunc("/", First)
+	//http.Handle("/stylesheets/", http.StripPrefix("/stylesheets/", http.FileServer(http.Dir("stylesheets"))))
+	http.Handle("/images/", http.StripPrefix("/images/", http.FileServer(http.Dir("images"))))
 	http.HandleFunc("/flights", Second)
+	http.Handle("/stylesheets/", http.StripPrefix("/stylesheets/", http.FileServer(http.Dir("stylesheets"))))
 	log.Fatal(http.ListenAndServe(":8000", nil))
 }
 
-// func Calculate(w http.ResponseWriter, r *http.Request) {
-// 	err := r.ParseForm()
-// 	if err != nil {
-// 		log.Fatal(err)
-// 	}
-// 	exp := r.Form.Get("exp")
-// 	res, err := calculator.CalculatorResult(string(exp))
-// 	if err != nil {
-// 		fmt.Fprintf(w, "FAILED: "+err.Error())
-// 		return
-// 	}
-// 	t, err2 := template.ParseFiles("static/result.html")
-// 	if err2 != nil {
-// 		panic(err)
-// 	}
-// 	var d1 data
-// 	if err == nil {
-// 		d1 = data{Exp: string(exp), Res: fmt.Sprintf("%f", res)}
-// 	} else {
-// 		d1 = data{Exp: string(exp), Res: err.Error()}
-// 	}
-
-// 	err = t.Execute(w, d1)
-// 	// http.ServeFile(w, r, "static/result.html")
-// }
 func First(w http.ResponseWriter, r *http.Request) {
 
 	t, err := template.ParseFiles("views/index.html", "views/partials/head.html", "views/partials/header.html", "views/partials/header_default.html", "views/partials/header_new.html", "views/partials/footer.html")
@@ -55,9 +33,9 @@ func First(w http.ResponseWriter, r *http.Request) {
 		panic(err)
 	}
 	var d1 data
-	isLoggedInUser := true
-	flightBookingAllowed := true
-	if isLoggedInUser && flightBookingAllowed {
+	IsLoggedInUser := true
+	FlightBookingAllowed := true
+	if IsLoggedInUser && FlightBookingAllowed {
 		d1.Done = true
 	} else {
 		d1.Done = false
@@ -76,13 +54,9 @@ func Second(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		panic(err)
 	}
-	d2 := data{DiscountValue: "30%", LeftNavMenu: false}
+	d2 := data{DiscountValue: "30", LeftNavMenu: false}
 	err = t.Execute(w, d2)
 	if err != nil {
 		panic(err)
 	}
-}
-func main() {
-	HomePage()
-
 }

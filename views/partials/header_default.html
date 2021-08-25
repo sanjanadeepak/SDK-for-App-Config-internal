@@ -3,7 +3,7 @@
 <nav class="bx--cloud-header">
     <div class="bx--cloud-header__wrapper">
         <a href="/" class="bx--cloud-header-brand">
-            <img src="../images/cell.svg" alt=" " />
+            <img src="images/cell.svg" alt=" " />
             <h4 class="bx--cloud-header-brand__text">
                 Blue
                 <span>Charge</span>
@@ -55,14 +55,14 @@
             <a class="bx--cloud-header-list__link" href="#">DATACARD</a>
             <a class="bx--cloud-header-list__link" href="#">DTH</a>
             <a class="bx--cloud-header-list__link" href="#">LANDLINE</a>
-            {{if not .IsLoggedInUser}}
+            {{ if not .IsLoggedInUser }}
                 <button class="bx--btn bx--btn--primary" type="button" data-modal-target="#modalLogin">LOGIN</button>
             {{ else }}
-            <p style="margin-right: 10px;">{{.UserEmail}} </p>
+            <p style="margin-right: 10px;">{{ .UserEmail }} </p>
             <button class="bx--btn bx--btn--primary" type="button" onclick="window.location.href='/logout'">SIGN OUT</button>
-            {{end}}
+            {{ end }}
         </li>
     </ul>
 </nav>
 </header>
-{{end}}
+{{ end }}

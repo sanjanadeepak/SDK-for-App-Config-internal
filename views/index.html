@@ -18,16 +18,18 @@ specific language governing permissions and limitations under the License.
     <meta charset="UTF-8" />
     <!-- <div w3-include-html="partials/head.html"></div> -->
     
+  
     {{template "head"}}
-    <link rel="stylesheet" href="stylesheets/index.css">
+        
+    <link rel="stylesheet" type="text/css" href="stylesheets/index.css" />
 </head>
 
 <body>
     <!-- <%- include('./partials/header'); %> -->
     {{ if  .LeftNavMenu }}
     {{ template "header_new" }}
-    {{else}}
-    {{ template "header_default"}}
+    {{ else }}
+    {{ template "header_default" }}
     {{ end }}
 
     <div class="banner">
@@ -53,7 +55,7 @@ specific language governing permissions and limitations under the License.
     <div class="bx--row">
         <div class="bx--col-lg-4 bx--col-md-3 bx--col-sm-2">
             <div class="btm-grid back-col1">
-                <img src="images/bbbb.png" alt="" />
+                <img src="images/bbbb.png" alt=" " />
             </div>
         </div>
         <div class="bx--col-lg-4 bx--col-md-3 bx--col-sm-2">
@@ -73,7 +75,7 @@ specific language governing permissions and limitations under the License.
         </div>
         <div class="bx--col-lg-4 bx--col-md-3 bx--col-sm-2">
             <div class="btm-grid back-col2">
-                <img src="images/bbb1.png" alt="" />
+                <img src="images/bbb1.png" alt=" " />
             </div>
         </div>
     </div>
